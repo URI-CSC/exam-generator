@@ -1,0 +1,148 @@
+## ========================================================
+## ========================================================
+- question: |
+    What is the exact number of multiplications $T(n)$ run by the following code?
+    \begin{lstlisting}
+    s = 1;
+    for (int i = 0 ; i < 2*n ; i++) {
+      s = s * i;
+    }
+    s = s * 2;
+    \end{lstlisting}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - $n+1$
+    - $3n$
+    - $n/2$
+    - $2n$
+  correct: 
+    - None of the others
+  group:
+    g1
+
+- question: |
+    What is the exact number of multiplications $T(n)$ run by the following code?
+    \begin{lstlisting}
+    s = 1;
+    for (int i = 0 ; i < 3*n ; i++) {
+      s = s * i;
+    }
+    s = s * 2;
+    \end{lstlisting}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - $n+1$
+    - $2n$
+    - $3n/2$
+    - None of the others
+  correct: 
+    - $3n+1$
+  group:
+    g1
+
+- question: |
+    What is the exact number of multiplications $T(n)$ run by the following code?
+    \begin{lstlisting}
+    s = 1;
+    for (int i = 0 ; i < 4*n ; i++) {
+      s = s * i;
+    }
+    s = s * 2;
+    \end{lstlisting}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - $3n+1$
+    - $3n$
+    - $2n/2$
+    - $4n$
+  correct: 
+    - None of the others
+  group:
+    g1
+
+## ========================================================
+## ========================================================
+
+- question: |
+    What is the exact number of multiplications $T(n)$ run by the following code?
+    \begin{lstlisting}
+    s = 1;
+    for (int i = 0 ; i < n ; i++) {
+      for (int j = 0 ; j < 2*n ; j++) {
+        s = s * i;
+      }
+    }
+    \end{lstlisting}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - $n^2/2$
+    - $2n$
+    - None of the others
+    - $2n+n$
+  correct: 
+    - $2n^2$
+  group:
+    g2
+
+- question: |
+    What is the exact number of multiplications $T(n)$ run by the following code?
+    \begin{lstlisting}
+    s = 1;
+    for (int i = 0 ; i < n ; i++) {
+      for (int j = 0 ; j < 3*n ; j++) {
+        s = s * i;
+      }
+    }
+    \end{lstlisting}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - $2n^2+n$
+    - $3n$
+    - None of the others
+    - $3n+n$
+  correct: 
+    - $3n^2$
+  group:
+    g2
+
+## ========================================================
+## ========================================================
+- question: |
+    What is the solution for the following recurrence?
+    \begin{displaymath}
+      T(1) = c, \quad T(n)=2T(n-1)+2
+    \end{displaymath}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - None of the others
+    - linear
+    - quadratic
+    - logarithmic
+  correct: 
+    - exponential
+  group:
+    g3
+
+- question: |
+    What is the solution for the following recurrence?
+    \begin{displaymath}
+      T(1) = c, \quad T(n)=3T(n-1)+4
+    \end{displaymath}
+  points: 8
+  type: oneparchoices
+  wrong:
+    - None of the others
+    - linear
+    - quadratic
+    - logarithmic
+  correct: 
+    - exponential
+  group:
+    g3
+
