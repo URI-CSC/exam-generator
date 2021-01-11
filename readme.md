@@ -13,3 +13,5 @@ python3 generator.py <YAML_FNAME> <N_QUESTIONS> <LATEX_FNAME> <SEED>
 ```
 pdflatex <LATEX_FNAME>
 ```
+
+> If figures and references are used, then might want to run `pdflatex` twice
