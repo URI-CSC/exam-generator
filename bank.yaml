@@ -1,148 +1,135 @@
 ## ========================================================
 ## ========================================================
-- question: |
-    What is the exact number of multiplications $T(n)$ run by the following code?
-    \begin{lstlisting}
-    s = 1;
-    for (int i = 0 ; i < 2*n ; i++) {
-      s = s * i;
-    }
-    s = s * 2;
-    \end{lstlisting}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - $n+1$
-    - $3n$
-    - $n/2$
-    - $2n$
-  correct: 
-    - None of the others
-  group:
-    g1
 
 - question: |
-    What is the exact number of multiplications $T(n)$ run by the following code?
-    \begin{lstlisting}
-    s = 1;
-    for (int i = 0 ; i < 3*n ; i++) {
-      s = s * i;
-    }
-    s = s * 2;
-    \end{lstlisting}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - $n+1$
-    - $2n$
-    - $3n/2$
-    - None of the others
-  correct: 
-    - $3n+1$
-  group:
-    g1
-
-- question: |
-    What is the exact number of multiplications $T(n)$ run by the following code?
-    \begin{lstlisting}
-    s = 1;
-    for (int i = 0 ; i < 4*n ; i++) {
-      s = s * i;
-    }
-    s = s * 2;
-    \end{lstlisting}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - $3n+1$
-    - $3n$
-    - $2n/2$
-    - $4n$
-  correct: 
-    - None of the others
-  group:
-    g1
+    Considering the statements below, indicate the sum of the values corresponding to all statements that are \verb|True|.  If none are \verb|True|, the answer should be $0$:
+  type: tf
+  statements:
+    - ['True', 'The minimum number of nodes in a binary heap of height $h$ is $2^h$']
+    - ['True', 'In the worst-case, the \verb|up-heap| method of a binary heap is less expensive than \verb|down-heap|']
+    - ['False', 'Assuming a BST with keys between $1$ and $500$, after searching for $256$, the sequence 352, 28, 40, 50, 45, 47, 46 could be a valid sequence of nodes examined']
+    - ['True', 'Assuming a BST with keys between $1$ and $500$, after searching for $256$, the sequence 352, 28, 40, 350, 45, 347, 46 could be a valid sequence of nodes examined']
+    - ['True', 'Any complete tree can be efficiently implemented as an array']
+    - ['False', 'In a max-heap each key is greater or equal to the keys of all ancestors']
+    - ['False', 'Two vertices are adjacent if there is a path of any length connecting them']
+    - ['True', 'Two vertices are connected if there is a path of any length connecting them']
+  number: 4
+  points: 7
 
 ## ========================================================
 ## ========================================================
 
 - question: |
-    What is the exact number of multiplications $T(n)$ run by the following code?
-    \begin{lstlisting}
-    s = 1;
-    for (int i = 0 ; i < n ; i++) {
-      for (int j = 0 ; j < 2*n ; j++) {
-        s = s * i;
-      }
-    }
-    \end{lstlisting}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - $n^2/2$
-    - $2n$
-    - None of the others
-    - $2n+n$
-  correct: 
-    - $2n^2$
-  group:
-    g2
+    Assuming you have a valid max-heap with $15$ elements such that a post-order traversal outputs the sequence $1,2,\dots,14,15$.  What is the sum of all nodes of height $h=3$?
+  points: 7
+  type: single
+  answer: 15
+  group: g1
 
 - question: |
-    What is the exact number of multiplications $T(n)$ run by the following code?
-    \begin{lstlisting}
-    s = 1;
-    for (int i = 0 ; i < n ; i++) {
-      for (int j = 0 ; j < 3*n ; j++) {
-        s = s * i;
-      }
-    }
-    \end{lstlisting}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - $2n^2+n$
-    - $3n$
-    - None of the others
-    - $3n+n$
-  correct: 
-    - $3n^2$
-  group:
-    g2
+    Assuming you have a valid max-heap with $7$ elements such that a post-order traversal outputs the sequence $1,2,\dots,6,7$.  What is the sum of all nodes of height $h=1$?
+  points: 7
+  type: single
+  answer: 9
+  group: g1
+
+- question: |
+    Assuming you have a valid max-heap with $7$ elements such that a post-order traversal outputs the sequence $1,2,\dots,6,7$.  What is the sum of all nodes of height $h=2$?
+  points: 7
+  type: single
+  answer: 7
+  group: g1
 
 ## ========================================================
 ## ========================================================
 - question: |
-    What is the solution for the following recurrence?
-    \begin{displaymath}
-      T(1) = c, \quad T(n)=2T(n-1)+2
-    \end{displaymath}
-  points: 8
-  type: oneparchoices
-  wrong:
-    - None of the others
-    - linear
-    - quadratic
-    - logarithmic
-  correct: 
-    - exponential
-  group:
-    g3
+    Consider an empty hash table of length $11$, in which keys $21,12,5,32,7,10,16,24$ are inserted using the hash function $h(x)=(x+3) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
+  points: 7
+  type: single
+  answer: 3
+  group: g2
 
 - question: |
-    What is the solution for the following recurrence?
-    \begin{displaymath}
-      T(1) = c, \quad T(n)=3T(n-1)+4
-    \end{displaymath}
-  points: 8
-  type: oneparchoices
+    Consider an empty hash table of length $11$, in which keys $7,42,51,12,27,1,19,77$ are inserted using the hash function $h(x)=(x+5) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
+  points: 7
+  type: single
+  answer: 2
+  group: g2
+
+## ========================================================
+## ========================================================
+
+- question: |
+    Consider the BST below, what is the output of a preorder traversal that, for each visit, prints the {\it height} of the node?
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[height=2.5in]{imgs/bst-1.png}
+    \end{figure}
+  points: 7
+  type: choices
   wrong:
     - None of the others
-    - linear
-    - quadratic
-    - logarithmic
+    - 4, 3, 2, 1, 0, 2, 0, 3, 2, 1, 0
+    - 4, 3, 2, 1, 0, 1, 1, 3, 2, 1, 0
+    - 4, 2, 2, 1, 0, 1, 0, 3, 2, 1, 0
   correct: 
-    - exponential
-  group:
-    g3
+    - 4, 3, 2, 1, 0, 1, 0, 3, 2, 1, 0
+  group: g3
 
+
+- question: |
+    Consider the BST below.  What is the output of a postorder traversal that, for each visit, prints the {\it depth} of the node?
+    \begin{figure}[h!]
+      \centering
+      \includegraphics[height=2.5in]{imgs/bst-1.png}
+    \end{figure}
+  points: 7
+  type: choices
+  wrong:
+    - None of the others
+    - 4, 3, 2, 2, 2, 1, 4, 3, 2, 1, 0
+    - 4, 3, 2, 3, 2, 1, 4, 2, 2, 1, 0
+    - 4, 3, 2, 3, 1, 1, 4, 3, 2, 1, 0
+  correct: 
+    - 4, 3, 2, 3, 2, 1, 4, 3, 2, 1, 0
+  group: g3
+
+
+## ========================================================
+## ========================================================
+
+- question: |
+    Consider inserting the keys $31, 53, 1, 4, 47, 39, 67, 82$ into an empty hash table of length $m=11$.  Assume collisions are handled using a technique called {\it double hashing} which uses the function $h(k)=(h_1(k)+j h_2(k))\mod m$, where $h_1(k)=k\mod m$ and $h_2(k)=5-(k\mod 5)$, for $j=0,1,2,\dots,m-1$.  Indicate the sum of the values corresponding to all statements that are \verb|True|.  If none are \verb|True|, the answer should be $0$.  Note that you must insert all values into the table and deal with collisions before answering the question.
+  points: 7
+  type: tf
+  statements:
+    - ['True', '$31$ will be stored at index 9']
+    - ['True', '$53$ will be stored at index 0']
+    - ['True', '$1$ will be stored at index 1']
+    - ['True', '$4$ will be stored at index 4']
+    - ['False', '$47$ will be stored at index 4']
+    - ['False', '$39$ will be stored at index 1']
+    - ['False', '$67$ will be stored at index 8']
+    - ['False', '$82$ will be stored at index 0']
+  number: 4
+  points: 7
+
+## ========================================================
+## ========================================================
+
+- question: |
+    Consider a BST where keys can be integers (no repeats) between $10$ and $50$, inclusive.  The root node is $13$ and the left and right subtrees have the same height, which is greater or equal to 1.  That is, the tree's height is at least equal to 2.  Of all possible trees, consider the tree with the {\bf maximum sum} over all its keys.  What is this maximum sum?
+  points: 7
+  type: single
+  answer: 375
+  group: g6
+
+- question: |
+    Consider a BST where keys can be integers (no repeats) between $10$ and $50$, inclusive.  The root node is $13$ and the left and right subtrees have the same height, which is greater or equal to 1.  That is, the tree's height is at least equal to 2.  Of all possible trees, consider the tree with the {\bf minimum sum} over all its keys.  What is this minimum sum?    
+  points: 7
+  type: single
+  answer: 63
+  group: g6
+
+## ========================================================
+## ========================================================
