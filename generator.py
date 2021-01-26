@@ -2,6 +2,19 @@ import sys
 import yaml
 import random
 
+
+
+#=============================================================================#
+# Function: print_body()
+# -----------------------------------------------------------------------------
+# \brief    Prints the main body of the exam document.
+# This function prints the main body of any given exam document to the provided
+# file name in the fid field. This body is where the majority of text that 
+# doesnt change between several exams should go. Thsi function only prints up
+# to the beginning of the questions section of latex source document.
+#
+# \param fid The filename to write the exam body to.
+#=============================================================================#
 def print_body(fid):
     fid.write(r"""
 \usepackage{graphicx}
@@ -62,6 +75,14 @@ def print_body(fid):
 ######################################################################
 ######################################################################
 
+#=============================================================================#
+# Function: print_tf()
+# -----------------------------------------------------------------------------
+# \brief A function to print latex source code for true/false questions
+# 
+# \param fid The filename to write the exam body to.
+# \param q   The question pulled from the loaded data
+#=============================================================================#
 def print_tf(fid, q):
     answer = 0
     # shuffle statements in place
@@ -79,11 +100,28 @@ def print_tf(fid, q):
     # delete used statements
     del q['statements'][0:q['number']]
 
+#=============================================================================#
+# Function: print_single()
+# -----------------------------------------------------------------------------
+# \brief A function to print latex source code for free-response questions
+# 
+# \param fid The filename of the output file
+# \param q   The question pulled from the loaded data
+#=============================================================================#
 def print_single(fid, q):
     fid.write('\n\n\\question[{}] {}'.format(q['points'], q['question']))
     fid.write('\\answerline')
     sys.stderr.write('{}\n'.format(q['answer']))
 
+
+#=============================================================================#
+# Function: print_choices()
+# -----------------------------------------------------------------------------
+# \brief A function to print latex source code for multiple choice questions
+# 
+# \param fid The filename of the output file
+# \param q   The question pulled from the loaded data
+#=============================================================================#
 def print_choices(fid, q):
     fid.write('\n\n\\question[{}] {}'.format(q['points'], q['question']))
     fid.write('\\begin{choices}')
@@ -99,6 +137,20 @@ def print_choices(fid, q):
     fid.write('\\answerline')
     sys.stderr.write('{}\n'.format(chr(ord('A')+correct)))
 
+
+#=============================================================================#
+# Function: remove_group()
+# -----------------------------------------------------------------------------
+# \brief A function to remove a full group of questions from the loaded data
+# Questions can be placed into groups so that different exams can have different
+# questions that are still loosely related. These questions can be placed in groups
+# so that only question from a group is used in each actual exam. This function
+# removes the rest of the questions in the same group, so that no two questions
+# from the same group are on the final exam.
+# 
+# \param db  The data loaded from the question bank
+# \param g   The group to remove from the question bank
+#=============================================================================#
 def remove_group(db, g):
     # find indices to be removed
     idxs = [i for i in range(len(db)) if 'group' in db[i].keys() and g == db[i]['group']]
@@ -106,27 +158,58 @@ def remove_group(db, g):
     for idx in sorted(idxs, reverse = True):
         del db[idx] 
 
+
+#=============================================================================#
+# Function: next_question()
+# -----------------------------------------------------------------------------
+# \brief A function to pull the next question for the exam from the loaded question bank
+# This function handles all of the "admin" work associated with pulling a new 
+# question from the question bank. It selects the next question at random and removes
+# the used question from the question bank to avoid repeat questions.
+# 
+# \param fid The filename of the output file
+# \param db  The data loaded from the question bank
+# \param n_q   The number of questions to generate for a given exam
+#=============================================================================#
 def next_question(fid, db, n_q):
     # shuffle questions in place
     random.shuffle(db)
+
     # print questions and delete used question from pool
     if db[0]['type'] == 'tf':
+        # Handle true/false questions
         print_tf(fid, db[0])
         if len(db[0]['statements']) < db[0]['number']:
             del db[0]
+
     elif db[0]['type'] == 'single':
+        # Handle free-response questions
         print_single(fid, db[0])
         if n_q != -1 and 'group' in db[0].keys():
             remove_group(db, db[0]['group'])
         else:
             del db[0]
+
     elif db[0]['type'] == 'choices':
+        # Handle multiple choice questions
         print_choices(fid, db[0])
         if n_q != -1 and 'group' in db[0].keys():
             remove_group(db, db[0]['group'])
         else:
             del db[0]
 
+
+#=============================================================================#
+# Function: print_latex()
+# -----------------------------------------------------------------------------
+# \brief A function to handle the actual writing to a latex file  
+# This function handles all of the other subroutines that print latex source 
+# code to the output file.
+# 
+# \param fname The filename of the output file
+# \param n_q   The number of questions to generate for a given exam
+# \param data  The data loaded from the question bank
+#=============================================================================#
 def print_latex(fname, n_q, data):
     with open(fname, 'wt') as fid:
         fid.write('\\documentclass[12pt,addpoints]{exam}')
@@ -138,6 +221,17 @@ def print_latex(fname, n_q, data):
         fid.write('\n\n\\end{questions}')
         fid.write('\n\\end{document}')
 
+
+#=============================================================================#
+# Function: main()
+# -----------------------------------------------------------------------------
+# \brief The main program function for this tool
+# The function used to encapsulate all relevant subroutine calls in this tool
+# 
+# \param yaml_fname The filename of the yaml format question bank
+# \param total      The number of questions to generate for a given exam
+# \param out_fname  The name of the file to write the output to
+#=============================================================================#
 def main(yaml_fname, total, out_fname):    
     # load questions
     with open(yaml_fname, 'rt') as in_fid:
