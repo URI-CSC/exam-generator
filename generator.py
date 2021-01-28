@@ -3,7 +3,6 @@ import yaml
 import random
 
 
-
 #=============================================================================#
 # Function: print_body()
 # -----------------------------------------------------------------------------
@@ -99,6 +98,7 @@ def print_tf(fid, q):
     sys.stderr.write('{}\n'.format(answer))
     # delete used statements
     del q['statements'][0:q['number']]
+
 
 #=============================================================================#
 # Function: print_single()
@@ -238,6 +238,7 @@ def main(yaml_fname, total, out_fname):
         data = yaml.safe_load(in_fid)
     # save exam
     print_latex(out_fname, total, data)
+
 
 #####################################################################
 # get command line arguments
