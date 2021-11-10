@@ -51,19 +51,40 @@
 \pagebreak
 
 \begin{questions}
-    
 
-\question[7] Consider a BST where keys can be integers (no repeats) between $10$ and $50$, inclusive.  The root node is $13$ and the left and right subtrees have the same height, which is greater or equal to 1.  That is, the tree's height is at least equal to 2.  Of all possible trees, consider the tree with the {\bf minimum sum} over all its keys.  What is this minimum sum?    
+\question[5] 
+Consider an empty hash table of length $11$, in which keys $17,22,1,32,23,41,9,28$ are inserted with $h(x)=(x+5) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
 \answerline
 
-\question[7] Consider an empty hash table of length $11$, in which keys $21,12,5,32,7,10,16,24$ are inserted using the hash function $h(x)=(x+3) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
+\question[5] 
+A post-order traversal of a {\it max-heap} with $7$ elements is $1,2,\dots,6,7$.  What is the sum of all nodes of height $h=1$?
 \answerline
 
-\question[7] Assuming you have a valid max-heap with $7$ elements such that a post-order traversal outputs the sequence $1,2,\dots,6,7$.  What is the sum of all nodes of height $h=1$?
+\question[5] Considering the BST below:
+\begin{figure}[h!]
+  \centering
+  \includegraphics[height=2.5in]{imgs/bst.pdf}
+\end{figure}
+
+What is the output of a preorder traversal that, for each visit, prints the {\it height} of the node?
+\begin{choices}	
+	\choice None of the others	
+	\choice 4, 3, 2, 1, 0, 1, 0, 3, 2, 1, 0	
+	\choice 4, 3, 2, 2, 2, 1, 4, 3, 2, 1, 0	
+	\choice 4, 3, 2, 3, 2, 1, 4, 2, 2, 1, 0	
+	\choice 4, 3, 2, 1, 0, 1, 1, 3, 2, 1, 0
+\end{choices}
 \answerline
 
-\question[7] Consider inserting the keys $31, 53, 1, 4, 47, 39, 67, 82$ into an empty hash table of length $m=11$.  Assume collisions are handled using a technique called {\it double hashing} which uses the function $h(k)=(h_1(k)+j h_2(k))\mod m$, where $h_1(k)=k\mod m$ and $h_2(k)=5-(k\mod 5)$, for $j=0,1,2,\dots,m-1$.  Indicate the sum of the values corresponding to all statements that are \verb|True|.  If none are \verb|True|, the answer should be $0$.  Note that you must insert all values into the table and deal with collisions before answering the question.
-\begin{itemize}	\item[$(1)$] $39$ will be stored at index 1	\item[$(2)$] $82$ will be stored at index 0	\item[$(4)$] $31$ will be stored at index 9	\item[$(8)$] $53$ will be stored at index 0\end{itemize}\answerline
+\question[5] 
+Indicate the sum of the values corresponding to all statements that are \verb|True|.  Mark $0$ if none are \verb|True|:
+\begin{itemize}
+	\item[$(1)$] Traversing a BST using {\it pre-order} results in a sorted list of keys
+	\item[$(2)$] The worst-case performance of finding the largest element of a BST is $\Theta(1)$
+	\item[$(4)$] A binary heap is a complete BST
+	\item[$(8)$] $2^h$ is the minimum number of nodes in a binary heap of height $h$\end{itemize}
+\answerline
 
 \end{questions}
+
 \end{document}

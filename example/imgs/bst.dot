@@ -1,0 +1,23 @@
+digraph G {
+    node [ordering=out]
+
+    X1 [style=invis];
+    X2 [style=invis];
+    X3 [style=invis];
+    X4 [style=invis];
+    X5 [style=invis];
+
+    41 -> 30;
+    41 -> 55;
+    30 -> 15;
+    30 -> X1 [style=invis];
+    15 -> X2 [style=invis];
+    15 -> 25;
+    55 -> 43;
+    55 -> X3 [style=invis];
+    55 -> 65;
+    65 -> 60;
+    65 -> X4 [style=invis];
+    60 -> X5 [style=invis];
+    60 -> 63;
+}
