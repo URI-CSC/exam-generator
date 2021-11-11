@@ -53,11 +53,11 @@
 \begin{questions}
 
 \question[5] 
-Consider an empty hash table of length $11$, in which keys $17,22,1,32,23,41,9,28$ are inserted with $h(x)=(x+5) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
+Consider an empty hash table of length $11$, in which keys $17,22,11,36,28,41,19,30$ are inserted with $h(x)=(x+5) \mod 11$ and separate chaining.  What is the total number of {\it collisions}?
 \answerline
 
 \question[5] 
-A post-order traversal of a {\it max-heap} with $7$ elements is $1,2,\dots,6,7$.  What is the sum of all nodes of height $h=1$?
+A post-order traversal of a {\it max-heap} with $7$ elements is $1,2,\dots,6,7$.  What is the sum of all keys in nodes of height $h=1$?
 \answerline
 
 \question[5] Considering the BST below:
@@ -69,10 +69,10 @@ A post-order traversal of a {\it max-heap} with $7$ elements is $1,2,\dots,6,7$.
 What is the output of a preorder traversal that, for each visit, prints the {\it height} of the node?
 \begin{choices}	
 	\choice None of the others	
-	\choice 4, 3, 2, 1, 0, 1, 0, 3, 2, 1, 0	
-	\choice 4, 3, 2, 2, 2, 1, 4, 3, 2, 1, 0	
-	\choice 4, 3, 2, 3, 2, 1, 4, 2, 2, 1, 0	
-	\choice 4, 3, 2, 1, 0, 1, 1, 3, 2, 1, 0
+	\choice 4, 2, 1, 0, 3, 0, 2, 1, 0	
+	\choice 4, 2, 1, 1, 3, 0, 2, 1, 0	
+	\choice 3, 2, 3, 2, 1, 4, 2, 1, 0	
+	\choice 4, 2, 1, 0, 1, 3, 2, 1, 0
 \end{choices}
 \answerline
 
@@ -83,6 +83,15 @@ Indicate the sum of the values corresponding to all statements that are \verb|Tr
 	\item[$(2)$] The worst-case performance of finding the largest element of a BST is $\Theta(1)$
 	\item[$(4)$] A binary heap is a complete BST
 	\item[$(8)$] $2^h$ is the minimum number of nodes in a binary heap of height $h$\end{itemize}
+\answerline
+
+\question[5] 
+Indicate the sum of the values corresponding to all statements that are \verb|True|.  Mark $0$ if none are \verb|True|:
+\begin{itemize}
+	\item[$(1)$] The best-case performance of finding the smallest element in a BST is $\Theta(1)$
+	\item[$(2)$] Any complete tree can be efficiently represented as an array
+	\item[$(4)$] A binary heap is a complete binary tree
+	\item[$(8)$] In a max-heap each key is greater or equal to the keys of all ancestors\end{itemize}
 \answerline
 
 \end{questions}
